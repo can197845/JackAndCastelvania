@@ -1,0 +1,119 @@
+[gd_scene load_steps=21 format=3 uid="uid://bo1rviv2bxn8i"]
+
+[ext_resource type="Script" path="res://Jack.gd" id="1_htc83"]
+[ext_resource type="Texture2D" uid="uid://bla4cum22ktyt" path="res://Personaje/Poses/character_zombie_jump.png" id="2_anifx"]
+[ext_resource type="Texture2D" uid="uid://bfkxsc1papjq4" path="res://Personaje/Poses/character_zombie_kick.png" id="3_0c2cj"]
+[ext_resource type="Texture2D" uid="uid://bjb6fhyypn1hb" path="res://Personaje/Poses/character_zombie_run0.png" id="4_buwk1"]
+[ext_resource type="Texture2D" uid="uid://bv7ia03rpbxus" path="res://Personaje/Poses/character_zombie_run1.png" id="5_nxuuj"]
+[ext_resource type="Texture2D" uid="uid://dv06eyqriuosf" path="res://Personaje/Poses/character_zombie_run2.png" id="6_5h2x0"]
+[ext_resource type="Texture2D" uid="uid://cgec1bo21ds0i" path="res://Personaje/Poses/character_zombie_side.png" id="7_6otcf"]
+[ext_resource type="Texture2D" uid="uid://v24d0ri7i527" path="res://Personaje/Poses/character_zombie_slide.png" id="8_4glfy"]
+[ext_resource type="Texture2D" uid="uid://cu4mmjcq7omn6" path="res://Personaje/Poses/character_zombie_switch0.png" id="9_mligh"]
+[ext_resource type="Texture2D" uid="uid://dt2duigmxgw2p" path="res://Personaje/Poses/character_zombie_switch1.png" id="10_47dak"]
+[ext_resource type="Texture2D" uid="uid://bw7psaxqyalnu" path="res://Personaje/Poses/character_zombie_walk0.png" id="11_ja7fx"]
+[ext_resource type="Texture2D" uid="uid://ckbvl60q6mdhn" path="res://Personaje/Poses/character_zombie_walk1.png" id="12_3uupf"]
+[ext_resource type="Texture2D" uid="uid://ctj7hhpx862gr" path="res://Personaje/Poses/character_zombie_walk2.png" id="13_xib32"]
+[ext_resource type="Texture2D" uid="uid://ca4b2x7slxcql" path="res://Personaje/Poses/character_zombie_walk3.png" id="14_7k6sr"]
+[ext_resource type="Texture2D" uid="uid://dvqk8m21brmi0" path="res://Personaje/Poses/character_zombie_walk4.png" id="15_hrnhq"]
+[ext_resource type="Texture2D" uid="uid://btu1ttxte2h" path="res://Personaje/Poses/character_zombie_walk5.png" id="16_qtm6u"]
+[ext_resource type="Texture2D" uid="uid://da327jpn2fmv4" path="res://Personaje/Poses/character_zombie_walk6.png" id="17_kaegd"]
+[ext_resource type="Texture2D" uid="uid://c1aldrj6736hy" path="res://Personaje/Poses/character_zombie_walk7.png" id="18_xgs5l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0awdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_anifx")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0c2cj")
+}],
+"loop": true,
+"name": &"kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_buwk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nxuuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5h2x0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6otcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4glfy")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_mligh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_47dak")
+}],
+"loop": true,
+"name": &"switch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ja7fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3uupf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xib32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_7k6sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hrnhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qtm6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kaegd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xgs5l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wt12h"]
+radius = 27.0
+height = 98.0
+
+[node name="Jack" type="CharacterBody2D"]
+script = ExtResource("1_htc83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0awdl")
+animation = &"kick"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_wt12h")
