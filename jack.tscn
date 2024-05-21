@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bo1rviv2bxn8i"]
 
-[ext_resource type="Script" path="res://Jack.gd" id="1_htc83"]
+[ext_resource type="Script" path="res://jack.gd" id="1_bdna6"]
 [ext_resource type="Texture2D" uid="uid://bla4cum22ktyt" path="res://Personaje/Poses/character_zombie_jump.png" id="2_anifx"]
 [ext_resource type="Texture2D" uid="uid://bfkxsc1papjq4" path="res://Personaje/Poses/character_zombie_kick.png" id="3_0c2cj"]
 [ext_resource type="Texture2D" uid="uid://bjb6fhyypn1hb" path="res://Personaje/Poses/character_zombie_run0.png" id="4_buwk1"]
@@ -108,12 +108,20 @@ radius = 27.0
 height = 98.0
 
 [node name="Jack" type="CharacterBody2D"]
-script = ExtResource("1_htc83")
+script = ExtResource("1_bdna6")
+speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(122, 548)
 sprite_frames = SubResource("SpriteFrames_0awdl")
-animation = &"kick"
+animation = &"walk"
+frame = 7
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(125, 564)
 shape = SubResource("CapsuleShape2D_wt12h")
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(398, 306)
