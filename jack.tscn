@@ -122,6 +122,3 @@ metadata/_edit_group_ = true
 position = Vector2(125, 564)
 shape = SubResource("CapsuleShape2D_wt12h")
 metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(398, 306)

@@ -15,14 +15,17 @@ func movimiento_jugador():
 		velocity.x = speed * move_horizontal
 		$AnimatedSprite2D.flip_h = move_horizontal < 0
 		$AnimatedSprite2D.play() 
+		
+			
 	# si no es distinto de 0 es porque esta quieto	
-	else : 
+	else:
 		velocity.x = 0.0
-
+	if move_horizontal == 0:
+			$AnimatedSprite2D.stop() 
 func gravedad_jugador():
 	pass
 	
-func _process(_delta):
+func _process(delta):
 	movimiento_jugador()
 	
 func _physics_process(_delta):
