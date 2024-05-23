@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var speed : float
-@export var gravedad : int
-
+@export var gravedad : float = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var jump_velociad : float
 
 
 func movimiento_jugador():
@@ -22,11 +22,22 @@ func movimiento_jugador():
 		velocity.x = 0.0
 	if move_horizontal == 0:
 			$AnimatedSprite2D.stop() 
-func gravedad_jugador():
-	pass
+func gravedad_jugador(delta):
+	if not is_on_floor():
+		velocity.y += gravedad * delta
 	
+func jump_jugador():
+	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+		velocity.y = -jump_velociad
+	pass	
+
 func _process(delta):
 	movimiento_jugador()
+	jump_jugador()
+	gravedad_jugador(delta)
+	
+	
 	
 func _physics_process(_delta):
+	
 	move_and_slide()

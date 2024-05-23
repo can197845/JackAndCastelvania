@@ -112,13 +112,13 @@ script = ExtResource("1_bdna6")
 speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(122, 548)
+position = Vector2(269, 448)
 sprite_frames = SubResource("SpriteFrames_0awdl")
 animation = &"walk"
 frame = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(125, 564)
+position = Vector2(270, 463)
 shape = SubResource("CapsuleShape2D_wt12h")
 metadata/_edit_group_ = true
