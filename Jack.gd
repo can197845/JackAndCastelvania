@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed : float
 @export var gravedad : float = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var jump_velociad : float
+
 
 
 func movimiento_jugador():
@@ -28,8 +28,8 @@ func gravedad_jugador(delta):
 	
 func jump_jugador():
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = -jump_velociad
-	pass	
+		velocity.y = -500
+
 
 func _process(delta):
 	movimiento_jugador()
@@ -39,5 +39,4 @@ func _process(delta):
 	
 	
 func _physics_process(_delta):
-	
 	move_and_slide()
