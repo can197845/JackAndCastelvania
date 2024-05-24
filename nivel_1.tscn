@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b87n7m6508h62"]
+[gd_scene load_steps=19 format=3 uid="uid://b87n7m6508h62"]
 
 [ext_resource type="Texture2D" uid="uid://dkuopa2248whi" path="res://Sprites/14-TileSets/Terrain (32x32).png" id="1_e1ibg"]
 [ext_resource type="Texture2D" uid="uid://e8d244ypkgro" path="res://Sprites/14-TileSets/Decorations (32x32).png" id="2_1vy3t"]
 [ext_resource type="PackedScene" uid="uid://bo1rviv2bxn8i" path="res://jack.tscn" id="3_l4g08"]
 [ext_resource type="FontFile" uid="uid://4r3ie7iv24q1" path="res://fonts/Antique Quest St.ttf" id="4_n57mq"]
+[ext_resource type="PackedScene" uid="uid://bbqtvv7aghkh" path="res://plataformaMovilUno.tscn" id="5_vbe15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fh11q"]
 texture = ExtResource("1_e1ibg")
@@ -92,6 +93,50 @@ size = Vector2(303, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b52c2"]
 size = Vector2(314, 20)
 
+[sub_resource type="Curve2D" id="Curve2D_3pjuy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 31, 249, 0, 0, 0, 0, 423, 249)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_8f03m"]
+resource_name = "moving_floor"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oyxob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8pl4t"]
+_data = {
+"RESET": SubResource("Animation_oyxob"),
+"moving_floor": SubResource("Animation_8f03m")
+}
+
 [node name="Nivel1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -155,7 +200,7 @@ position = Vector2(642, 106)
 shape = SubResource("RectangleShape2D_b52c2")
 
 [node name="Jack" parent="." instance=ExtResource("3_l4g08")]
-position = Vector2(-223, 62)
+position = Vector2(-214, 64)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -178,3 +223,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_n57mq")
 theme_override_font_sizes/font_size = 25
 text = "Nivel :"
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3pjuy")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(31, 249)
+
+[node name="plataformaMovilUno" parent="Path2D/PathFollow2D" instance=ExtResource("5_vbe15")]
+position = Vector2(-181, -201)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D/plataformaMovilUno"]
+libraries = {
+"": SubResource("AnimationLibrary_8pl4t")
+}
+autoplay = "moving_floor"

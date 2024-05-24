@@ -27,8 +27,12 @@ func gravedad_jugador(delta):
 		velocity.y += gravedad * delta
 	
 func jump_jugador():
+	#con Input.is_action_just_pressed lo que hacemos es esperar 
+	#que presionen el boton de salto y con la funcion is_on_floor 
+	#preguntamos si el jugador se encuentra en el piso si estas dos 
+	#condiciones se dan se procede al salto
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = -500
+		velocity.y = -500 # salto en negativo para que se eleve positivo baja
 
 
 func _process(delta):
