@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bbqtvv7aghkh"]
 
 [ext_resource type="Script" path="res://plataformaMovilUno.gd" id="1_5la8l"]
-[ext_resource type="Texture2D" uid="uid://dkuopa2248whi" path="res://Sprites/14-TileSets/Terrain (32x32).png" id="1_8ckbw"]
+[ext_resource type="Texture2D" uid="uid://dkuopa2248whi" path="res://art/Sprites/Terrain (32x32).png" id="2_nuljr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fem8r"]
 size = Vector2(93, 33)
@@ -15,6 +15,6 @@ shape = SubResource("RectangleShape2D_fem8r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(14, 4)
-texture = ExtResource("1_8ckbw")
+texture = ExtResource("2_nuljr")
 region_enabled = true
 region_rect = Rect2(32, 160, 96, 32)

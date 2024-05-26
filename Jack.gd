@@ -32,7 +32,7 @@ func jump_jugador():
 	#preguntamos si el jugador se encuentra en el piso si estas dos 
 	#condiciones se dan se procede al salto
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = -500 # salto en negativo para que se eleve positivo baja
+		velocity.y = -400 # salto en negativo para que se eleve positivo baja
 
 
 func _process(delta):

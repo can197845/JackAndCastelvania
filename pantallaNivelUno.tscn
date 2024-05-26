@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://doatb0n6vgqwd"]
+
+[ext_resource type="PackedScene" uid="uid://d0k28x06rjxcs" path="res://pantallaUno.tscn" id="1_vd6qe"]
+[ext_resource type="PackedScene" uid="uid://bo1rviv2bxn8i" path="res://jack.tscn" id="2_rtais"]
+
+[node name="PantallaNivelUno" type="Node2D"]
+
+[node name="pantallaUno" parent="." instance=ExtResource("1_vd6qe")]
+
+[node name="Jack" parent="." instance=ExtResource("2_rtais")]
+position = Vector2(1281, -355)

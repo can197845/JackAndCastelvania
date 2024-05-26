@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://b31rmgori6eu8"]
+
+[ext_resource type="Script" path="res://sierra.gd" id="1_cde0i"]
+[ext_resource type="Texture2D" uid="uid://dy7va23e6tvcc" path="res://art/Trampas/Saw/On (38x38).png" id="1_xgrob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77w1b"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amqyg"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc0jm"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2443"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v0vb"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lmxp"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrnk2"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbevb"]
+atlas = ExtResource("1_xgrob")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcijt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77w1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amqyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc0jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2443")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v0vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lmxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrnk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbevb")
+}],
+"loop": true,
+"name": &"sierraEncendida",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8jnvf"]
+size = Vector2(6, 2)
+
+[node name="sierra" type="CharacterBody2D"]
+position = Vector2(0, -3)
+script = ExtResource("1_cde0i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hcijt")
+animation = &"sierraEncendida"
+autoplay = "sierraEncendida"
+frame_progress = 0.960096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.98023e-08, 2)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_8jnvf")
+
+[node name="RayCastDetecSuelo" type="RayCast2D" parent="."]
+position = Vector2(21, -7)
+target_position = Vector2(0, 14)
+
+[node name="RayCastDetecPared" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+collision_mask = 17

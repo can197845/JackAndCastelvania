@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccqje8dy2c1qg"]
+
+[ext_resource type="Texture2D" uid="uid://dv2502lkdkavv" path="res://art/utilidades/Key.png" id="1_mpl6b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_myawf"]
+radius = 13.0
+height = 54.0
+
+[node name="llave" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_myawf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_mpl6b")
