@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://doatb0n6vgqwd"]
+[gd_scene load_steps=4 format=3 uid="uid://doatb0n6vgqwd"]
 
 [ext_resource type="PackedScene" uid="uid://d0k28x06rjxcs" path="res://pantallaUno.tscn" id="1_vd6qe"]
 [ext_resource type="PackedScene" uid="uid://bo1rviv2bxn8i" path="res://jack.tscn" id="2_rtais"]
+[ext_resource type="PackedScene" uid="uid://b31rmgori6eu8" path="res://sierra.tscn" id="3_waxbr"]
 
 [node name="PantallaNivelUno" type="Node2D"]
 
 [node name="pantallaUno" parent="." instance=ExtResource("1_vd6qe")]
 
 [node name="Jack" parent="." instance=ExtResource("2_rtais")]
-position = Vector2(1402, -408)
+position = Vector2(-139, 134)
+
+[node name="sierra" parent="." instance=ExtResource("3_waxbr")]
+position = Vector2(1551, 129)

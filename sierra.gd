@@ -4,6 +4,7 @@ extends CharacterBody2D
 const VELOCIDAD = 200
 const RAY_PISO_POSICION_X = 20
 const RAY_PARED_TARGET_X = 20
+
 @export var gravedad : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 

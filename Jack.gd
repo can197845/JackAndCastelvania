@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health= 100
 @export var speed : float
 @export var gravedad : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -44,3 +45,9 @@ func _process(delta):
 	
 func _physics_process(_delta):
 	move_and_slide()
+
+
+func _on_area_detec_jack_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	health -= 10
+	if health == 0:
+		print("perdio")

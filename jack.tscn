@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bo1rviv2bxn8i"]
+[gd_scene load_steps=22 format=3 uid="uid://bo1rviv2bxn8i"]
 
 [ext_resource type="Script" path="res://jack.gd" id="1_bdna6"]
 [ext_resource type="Texture2D" uid="uid://bla4cum22ktyt" path="res://art/Personaje/Poses/character_zombie_jump.png" id="2_u8pk0"]
@@ -107,6 +107,10 @@ animations = [{
 radius = 18.0
 height = 48.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwcxr"]
+radius = 15.0
+height = 48.0
+
 [node name="Jack" type="CharacterBody2D"]
 collision_layer = 16
 script = ExtResource("1_bdna6")
@@ -121,6 +125,7 @@ frame = 7
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(268, 456)
 shape = SubResource("CapsuleShape2D_wt12h")
 metadata/_edit_group_ = true
@@ -130,3 +135,13 @@ position = Vector2(410, 369)
 zoom = Vector2(1.5, 1.5)
 limit_top = 0
 limit_bottom = 650
+
+[node name="AreaDetecJack" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetecJack"]
+position = Vector2(268, 455)
+shape = SubResource("CapsuleShape2D_dwcxr")
+
+[connection signal="area_shape_entered" from="AreaDetecJack" to="." method="_on_area_detec_jack_area_shape_entered"]

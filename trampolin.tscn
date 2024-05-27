@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0eu3aoji2a3i"]
+[gd_scene load_steps=15 format=3 uid="uid://d0eu3aoji2a3i"]
 
 [ext_resource type="Texture2D" uid="uid://b564nhu5uk0b5" path="res://animate/Tampolin/Idle.png" id="1_rm1cj"]
+[ext_resource type="Script" path="res://trampolin.gd" id="1_sbnpx"]
 [ext_resource type="Texture2D" uid="uid://br45timcrfm06" path="res://animate/Tampolin/Jump (28x28).png" id="2_2boik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ojp5"]
@@ -41,7 +42,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1_rm1cj")
 }],
-"loop": true,
+"loop": false,
 "name": &"idleTrampolin",
 "speed": 5.0
 }, {
@@ -70,22 +71,37 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qmiwv")
 }],
-"loop": true,
+"loop": false,
 "name": &"jumpTrampolin",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgidv"]
-size = Vector2(32, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcd22"]
+size = Vector2(29, 2.5)
 
-[node name="trampolin" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3n8d"]
+size = Vector2(35, 11)
+
+[node name="trampolin" type="Node2D"]
+script = ExtResource("1_sbnpx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_nbvo0")
-animation = &"idleTrampolin"
-frame_progress = 0.600109
+animation = &"jumpTrampolin"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
-shape = SubResource("RectangleShape2D_mgidv")
+[node name="AreaActivacion" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaActivacion"]
+modulate = Color(0.671814, 0.000347023, 0.673858, 1)
+position = Vector2(-1.5, 8.25)
+shape = SubResource("RectangleShape2D_hcd22")
+
+[node name="ObjetoColision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjetoColision"]
+position = Vector2(-0.5, 15.5)
+shape = SubResource("RectangleShape2D_e3n8d")
+
+[connection signal="body_entered" from="AreaActivacion" to="." method="_on_area_activacion_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0k28x06rjxcs"]
+[gd_scene load_steps=19 format=3 uid="uid://d0k28x06rjxcs"]
 
 [ext_resource type="Texture2D" uid="uid://dkuopa2248whi" path="res://art/Sprites/Terrain (32x32).png" id="1_12pne"]
 [ext_resource type="Texture2D" uid="uid://e8d244ypkgro" path="res://art/Sprites/14-TileSets/Decorations (32x32).png" id="2_crvxw"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://xqiqf8jjlkkw" path="res://canon.tscn" id="4_m0dsn"]
 [ext_resource type="PackedScene" uid="uid://b4g878ujqak01" path="res://ghots.tscn" id="7_3g6og"]
 [ext_resource type="PackedScene" uid="uid://d0eu3aoji2a3i" path="res://trampolin.tscn" id="8_5dphi"]
-[ext_resource type="PackedScene" uid="uid://b31rmgori6eu8" path="res://sierra.tscn" id="9_g5q0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yngrk"]
 texture = ExtResource("1_12pne")
@@ -590,8 +589,3 @@ autoplay = "path_gosth"
 
 [node name="trampolin" parent="." instance=ExtResource("8_5dphi")]
 position = Vector2(270, 505)
-
-[node name="sierra" parent="." instance=ExtResource("9_g5q0i")]
-position = Vector2(1484, 94)
-collision_layer = 17
-collision_mask = 17
