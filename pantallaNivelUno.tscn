@@ -8,4 +8,4 @@
 [node name="pantallaUno" parent="." instance=ExtResource("1_vd6qe")]
 
 [node name="Jack" parent="." instance=ExtResource("2_rtais")]
-position = Vector2(1281, -355)
+position = Vector2(1402, -408)
