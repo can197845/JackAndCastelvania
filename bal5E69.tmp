@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdpip0r1ywsys"]
+
+[ext_resource type="Script" path="res://BallCanon.gd" id="1_cyipv"]
+[ext_resource type="Texture2D" uid="uid://bxvahyyi1helt" path="res://art/Sprites/10-Cannon/Cannon Ball.png" id="2_rhlpe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ik52x"]
+
+[node name="BallCanon" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_cyipv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_rhlpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 9)
+shape = SubResource("CircleShape2D_ik52x")

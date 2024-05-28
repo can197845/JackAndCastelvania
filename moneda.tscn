@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnmy7xeow726c"]
+
+[ext_resource type="Texture2D" uid="uid://d1lgtfs8dsqib" path="res://art/utilidades/Coin.png" id="1_vq21l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_22wdc"]
+radius = 10.198
+
+[node name="Moneda" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vq21l")
+
+[node name="AreaRecoleccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRecoleccion"]
+shape = SubResource("CircleShape2D_22wdc")

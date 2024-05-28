@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://xqiqf8jjlkkw"]
+[gd_scene load_steps=12 format=3 uid="uid://xqiqf8jjlkkw"]
 
 [ext_resource type="Texture2D" uid="uid://bd5ofim5hn8g8" path="res://art/Sprites/10-Cannon/Shoot (44x28).png" id="1_lsi43"]
+[ext_resource type="Script" path="res://canon.gd" id="1_mivx2"]
 [ext_resource type="Texture2D" uid="uid://bykqp21igcg6m" path="res://art/Sprites/10-Cannon/Idle.png" id="2_1eq10"]
+[ext_resource type="PackedScene" uid="uid://cdpip0r1ywsys" path="res://ball_canon.tscn" id="2_yrnh5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kuf6d"]
 atlas = ExtResource("1_lsi43")
@@ -38,7 +40,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8kkhb")
 }],
-"loop": true,
+"loop": false,
 "name": &"canonFire",
 "speed": 5.0
 }, {
@@ -51,17 +53,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hiba"]
-size = Vector2(311, 29)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8nmg"]
+size = Vector2(299, 20)
 
 [node name="canon" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_mivx2")
+bola = ExtResource("2_yrnh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6q3wl")
-animation = &"canonFire"
-frame_progress = 0.300177
+animation = &"canonIdle"
+
+[node name="MarkerBola" type="Marker2D" parent="."]
+position = Vector2(-17, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-160.5, 4.5)
-shape = SubResource("RectangleShape2D_4hiba")
+position = Vector2(-166, 0)
+shape = SubResource("RectangleShape2D_b8nmg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

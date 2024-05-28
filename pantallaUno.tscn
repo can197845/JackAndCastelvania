@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://e8d244ypkgro" path="res://art/Sprites/14-TileSets/Decorations (32x32).png" id="2_crvxw"]
 [ext_resource type="PackedScene" uid="uid://ccqje8dy2c1qg" path="res://llave.tscn" id="3_gr3er"]
 [ext_resource type="PackedScene" uid="uid://bbqtvv7aghkh" path="res://plataformaMovilUno.tscn" id="3_k8glv"]
-[ext_resource type="PackedScene" uid="uid://xqiqf8jjlkkw" path="res://canon.tscn" id="4_m0dsn"]
 [ext_resource type="PackedScene" uid="uid://b4g878ujqak01" path="res://ghots.tscn" id="7_3g6og"]
+[ext_resource type="PackedScene" uid="uid://cnmy7xeow726c" path="res://moneda.tscn" id="7_phwht"]
 [ext_resource type="PackedScene" uid="uid://d0eu3aoji2a3i" path="res://trampolin.tscn" id="8_5dphi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yngrk"]
@@ -261,6 +261,7 @@ texture = ExtResource("1_12pne")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4r2ij"]
 texture = ExtResource("2_crvxw")
+texture_region_size = Vector2i(32, 32)
 2:2/0 = 0
 2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_0/angular_velocity = 0.0
@@ -568,9 +569,6 @@ libraries = {
 }
 autoplay = "RESET"
 
-[node name="canon" parent="." instance=ExtResource("4_m0dsn")]
-position = Vector2(772, 546)
-
 [node name="Path2DGosth" type="Path2D" parent="."]
 curve = SubResource("Curve2D_jyeaw")
 
@@ -589,3 +587,30 @@ autoplay = "path_gosth"
 
 [node name="trampolin" parent="." instance=ExtResource("8_5dphi")]
 position = Vector2(270, 505)
+
+[node name="VentanaUno" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(584, 141)
+scale = Vector2(3.66071, 3.66071)
+texture = ExtResource("2_crvxw")
+region_enabled = true
+region_rect = Rect2(72, 104, 56, 56)
+
+[node name="VentanaDos" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(892, 143)
+scale = Vector2(3.66071, 3.66071)
+texture = ExtResource("2_crvxw")
+region_enabled = true
+region_rect = Rect2(72, 104, 56, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(282, 227)
+scale = Vector2(3.5625, 2.84375)
+texture = ExtResource("2_crvxw")
+region_enabled = true
+region_rect = Rect2(32, 32, 32, 128)
+
+[node name="Moneda" parent="." instance=ExtResource("7_phwht")]
+position = Vector2(147, 316)
